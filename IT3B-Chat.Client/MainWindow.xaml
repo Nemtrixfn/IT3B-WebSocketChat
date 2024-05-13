@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <StackPanel>
+            <TextBox x:Name="ServerAddress" Text="ws://127.0.0.1:8181" Height="30" Margin="5"/>
+            <Button Content="Connect" Click="Connect_Click" Height="30" Margin="5"/>
+            <Button Content="Disconnect" Click="Disconnect_Click" Height="30" Margin="5"/>
+            <ListBox x:Name="MessagesListBox" Height="250" Margin="5"/>
+            <TextBox x:Name="MessageTextBox" Height="30" Margin="5"/>
+            <Button Content="Send" Click="Send_Click" Height="30" Margin="5"/>
+        </StackPanel>
 
     </Grid>
 </Window>

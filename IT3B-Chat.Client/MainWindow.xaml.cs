@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Net.WebSockets;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +17,29 @@ namespace IT3B_Chat.Client
  /// </summary>
  public partial class MainWindow : Window
  {
-  public MainWindow()
-  {
-   InitializeComponent();
-  }
- }
+        private ClientWebSocket client = new ClientWebSocket();
+
+
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+        private async void Connect_Click(object sender, RoutedEventArgs e)
+        {
+            await client.ConnectAsync(new Uri(ServerAddress.Text), CancellationToken.None);
+        }
+
+        private async void Send_Click(object sender, RoutedEventArgs e)
+        {
+            var buffer = Encoding.UTF8.GetBytes(MessageTextBox.Text);
+            await client.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true, CancellationToken.None);
+            MessageTextBox.Clear();
+        }
+
+        private async void Disconnect_Click(object sender, RoutedEventArgs e)
+        {
+            await client.CloseAsync(WebSocketCloseStatus.NormalClosure, string.Empty, CancellationToken.None);
+        }
+
+    }
 }

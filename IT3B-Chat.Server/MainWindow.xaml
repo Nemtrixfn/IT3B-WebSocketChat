@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <StackPanel>
+            <TextBox x:Name="textAddress" Text="ws://127.0.0.1:8181" Margin="5"/>
+            <Button x:Name="btnStartServer" Content="Start Server" Click="BtnStartServer_Click" Margin="5"/>
+            <Button x:Name="btnStopServer" Content="Stop Server" Click="BtnStopServer_Click" Margin="5"/>
+            <ListBox x:Name="listBoxLog" Height="300"/>
+        </StackPanel>
 
     </Grid>
 </Window>

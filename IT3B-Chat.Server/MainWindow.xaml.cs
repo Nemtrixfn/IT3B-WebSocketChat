@@ -16,9 +16,30 @@ namespace IT3B_Chat.Server
  /// </summary>
  public partial class MainWindow : Window
  {
-  public MainWindow()
-  {
-   InitializeComponent();
-  }
- }
+        private WebSocketServer server;
+
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+        private void BtnStartServer_Click(object sender, RoutedEventArgs e)
+        {
+            StartServer();
+        }
+
+        private void BtnStopServer_Click(object sender, RoutedEventArgs e)
+        {
+            StopServer();
+        }
+
+        private void StartServer()
+        {
+            // Váš kód pro inicializaci a spuštění WebSocket serveru
+        }
+
+        private void StopServer()
+        {
+            // Váš kód pro zastavení WebSocket serveru
+        }
+    }
 }
